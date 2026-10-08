@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halaman Login Split-Screen dengan Video HD</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+      background-color: #f9f9f9;
+    }
+
+    .split-screen {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Kolom kiri dengan video fullscreen */
+    .left-panel {
+      position: relative;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .left-panel video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* menjaga proporsi video */
+      z-index: 0;
+      filter: brightness(0.9); /* opsional agar teks lebih kontras */
+    }
+
+    .branding {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      text-align: center;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 0 2rem;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    .branding h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .branding p {
+      font-size: 1.1rem;
+    }
+
+    /* Kolom kanan */
+    .right-panel {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      padding: 2rem;
+    }
+
+    .login-form {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .logo {
+      width: 80px;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    .btn.sso {
+      background-color: #fff;
+      border: 1px solid #ccc;
+    }
+
+    .btn.primary {
+      background-color: #4a90e2;
+      color: #fff;
+    }
+
+    .divider {
+      text-align: center;
+      margin: 1rem 0;
+      color: #888;
+    }
+
+    .options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+
+    .forgot {
+      color: #4a90e2;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    /* Responsivitas */
+    @media (max-width: 768px) {
+      .split-screen {
+        flex-direction: column;
+      }
+
+      .left-panel {
+        display: none;
+      }
+
+      .right-panel {
+        flex: none;
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="split-screen">
+    <!-- Kolom kiri dengan video fullscreen -->
+    <section class="left-panel" aria-label="Video branding">
+      <video autoplay muted loop playsinline preload="auto" poster="thumbnail.jpg">
+        <source src="video.mp4" type="video/mp4">
+        <source src="video.webm" type="video/webm">
+        Browser Anda tidak mendukung video.
+      </video>
+      <div class="branding">
+        <h1>Selamat Datang!</h1>
+        <p>Bangun hari produktifmu dengan login sekarang.</p>
+      </div>
+    </section>
+
+    <!-- Kolom kanan: Formulir login -->
+    <section class="right-panel" aria-label="Formulir login">
+      <form class="login-form" aria-labelledby="loginTitle">
+        <img src="logo.png" alt="Logo" class="logo">
+        <h2 id="loginTitle">Masuk ke Akun Anda</h2>
+
+        <button type="button" class="btn sso" aria-label="Sign in with Google">
+          <img src="google-icon.svg" alt="" style="width:18px; vertical-align:middle;"> Sign in with Google
+        </button>
+
+        <div class="divider">or</div>
+
+        <label for="email">Email atau Username</label>
+        <input type="text" id="email" name="email" placeholder="Masukkan email" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Masukkan password" required>
+
+        <div class="options">
+          <label><input type="checkbox" name="remember"> Remember Me</label>
+          <a href="#" class="forgot">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="btn primary" aria-label="Tombol masuk">Sign In</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
