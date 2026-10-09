@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halaman Login Split-Screen dengan Video HD</title>
+</head>
+<body>
+  <main>
+    <!-- Kolom kiri dengan video fullscreen -->
+    <section aria-label="Video branding">
+      <video autoplay muted loop playsinline preload="auto" poster="thumbnail.jpg">
+        <source src="video.mp4" type="video/mp4">
+        <source src="video.webm" type="video/webm">
+        Browser Anda tidak mendukung video.
+      </video>
+      <div>
+        <h1>Selamat Datang!</h1>
+        <p>Bangun hari produktifmu dengan login sekarang.</p>
+      </div>
+    </section>
+
+    <!-- Kolom kanan: Formulir login -->
+    <section aria-label="Formulir login">
+      <form aria-labelledby="loginTitle">
+        <img src="logo.png" alt="Logo">
+        <h2 id="loginTitle">Masuk ke Akun Anda</h2>
+
+        <button type="button" aria-label="Sign in with Google">
+          <img src="google-icon.svg" alt="" style="width:18px; vertical-align:middle;"> Sign in with Google
+        </button>
+
+        <div>or</div>
+
+        <label for="email">Email atau Username</label>
+        <input type="text" id="email" name="email" placeholder="Masukkan email" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Masukkan password" required>
+
+        <div>
+          <label><input type="checkbox" name="remember"> Remember Me</label>
+          <a href="#">Forgot Password?</a>
+        </div>
+
+        <button type="submit" aria-label="Tombol masuk">Sign In</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
